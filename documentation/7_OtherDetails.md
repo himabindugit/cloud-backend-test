@@ -17,12 +17,12 @@
 
 #### Auth
 
-  > Used Jwt Auth for securing GraphQL API, created API in Auth0, more details are in config.ts.
+  > Used Jwt Auth for securing GraphQL API, created API in Auth0, more details are in `config.ts`.
 
 #### How to generate JWT Token
 
   > You can make curl request to create JWT using JWT config from `config.ts`, or use `check.test.ts` to generate a valid JWT token.
-  Happy to provide JWT token in a secure way or disable auth if there is any trouble generating  token. 
+  Happy to provide JWT token in a secure way or disable auth if there is any trouble generating token. 
   In Auth0, I have created API with the identifier.
 
 #### Assumptions
