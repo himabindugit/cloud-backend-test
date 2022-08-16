@@ -1,7 +1,11 @@
 import NodeGeocoder from 'node-geocoder';
 import * as dotenv from 'dotenv';
 // import { log } from '.';
-import { ERROR_MESSAGES, INVALID_API_KEY_ERROR } from './conf/constants';
+import {
+  ERROR_MESSAGES,
+  INVALID_API_KEY_ERROR,
+  INVALID_REQUEST_ERROR,
+} from './conf/constants';
 dotenv.config();
 
 export const getCoordinates = async (
@@ -26,6 +30,9 @@ export const getCoordinates = async (
     }
     return fetchedAddr;
   } catch (err: any) {
+    if (err?.toString().includes(INVALID_REQUEST_ERROR)) {
+      throw new Error(ERROR_MESSAGES.INVALID_ADDRESS);
+    }
     if (err?.toString().includes(INVALID_API_KEY_ERROR)) {
       throw new Error(ERROR_MESSAGES.INVALID_API_KEY);
     }
